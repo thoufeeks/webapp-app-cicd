@@ -16,13 +16,13 @@ jobs:
       - name: Copy index.html to App Server
         run: |
           scp -o StrictHostKeyChecking=no \
-          -i /home/ubuntu/mykey.pem \
+          -i /home/ubuntu/key.pem \
           index.html ubuntu@APP_SERVER_IP:/tmp/
 
       - name: Deploy to Nginx Directory
         run: |
           ssh -o StrictHostKeyChecking=no \
-          -i /home/ubuntu/mykey.pem \
+          -i /home/ubuntu/key.pem \
           ubuntu@APP_SERVER_IP << EOF
 
           sudo cp /tmp/index.html /var/www/html/index.html
