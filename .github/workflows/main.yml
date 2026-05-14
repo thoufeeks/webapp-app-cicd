@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+          aws eks update-kubeconfig --region us-east-1 --name act
 
       - name: Deploy to Kubernetes
         run: |
